@@ -3,22 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Cliente</title>
+    <title>Cadastro de itens</title>
 </head>
 <body>
-
 <div class="form">
-    <h2>Formulario de Cliente</h2>
+    <h2>Formulario de itens</h2>
 
-    <form action="cadastrar_cliente_scriptign.php" method="post">
+    <form action="cadastrar_item_scriptign.php" method="post">
       <label for="nome">Nome:</label>
       <input type="text" id="nome" name="nome" required><br>
 
-      <label for="telefone">Telefone:</label>
-      <input type="text" id="telefone" name="telefone" required><br>
+      <label for="quantidade">Quantidade:</label>
+      <input type="text" id="quantidade" name="quantidade" required><br>
 
-      <label for="cpf">CPF:</label>
-      <input type="text" id="cpf" name="cpf" required><br>
+      <label for="descricao">Descrição:</label><br>
+      <textarea id="descricao" name="descricao" rows="4" cols="30"></textarea><br>
 
       <input type="submit" value="Cadastrar">
     </form>

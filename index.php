@@ -9,10 +9,10 @@
 <div class="form">
     <form action="autenticar.php" method="post">
         <h1>Login</h1>
-        <span>Login</span>
-        <input type="text" name="login" id="login" required placeholder="Login"><br>
-        <span>Senha</span>
-        <input type="password" name="senha" id="senha" required placeholder="Senha">
+        <span>Login:</span>
+        <input type="text" name="login" id="login" required ><br>
+        <span>Senha:</span>
+        <input type="password" name="senha" id="senha" required >
         <div class="senha">
         <button type="submit">Entrar</button>
     </div>
