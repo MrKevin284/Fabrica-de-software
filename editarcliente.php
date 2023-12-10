@@ -52,4 +52,5 @@ if (isset($_GET['id'])) {
 } else {
     echo "ID do cliente não fornecido.";
 }
+
 ?>
