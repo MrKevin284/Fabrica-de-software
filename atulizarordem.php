@@ -13,10 +13,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $cor = $_POST['cor'];
         $placa = $_POST['placa'];
         $dtentrada = $_POST['dtentrada'];
+        $custo = $_POST["custo"];
         $descricao = $_POST['descricao'];
         $status = $_POST['status'];
 
-        $query = "UPDATE ordensservico SET idcliente=$idcliente, modelo='$modelo', marca='$marca', ano=$ano, cor='$cor', placa='$placa', dtentrada='$dtentrada', descricao='$descricao', status='$status' WHERE idordem=$idordem";
+        $query = "UPDATE ordensservico SET idcliente=$idcliente, modelo='$modelo', marca='$marca', ano=$ano, cor='$cor', placa='$placa', dtentrada='$dtentrada', custo='$custo', descricao='$descricao', status='$status' WHERE idordem=$idordem";
 
         if (mysqli_query($conn, $query)) {
             echo "<script>alert('Ordem de serviço atualizada com sucesso!'); window.location.href='listarordem.php';</script>";
