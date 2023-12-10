@@ -48,8 +48,11 @@ if (isset($_GET['id'])) {
         <label for="dtentrada">Data de Entrada:</label>
         <input type="text" name="dtentrada" value="<?= $ordem["dtentrada"] ?>" required> <br>
 
-        <label for="descricao">Descrição:</label>
-        <textarea name="descricao" required><?= $ordem["descricao"] ?></textarea> <br>
+        <label>Custo:</label>
+        <input type="text" name="custo" step="0.01" value="<?= $ordem["custo"]?>"><br>
+
+        <label for="descricao">Descrição:</label><br>
+        <textarea name="descricao" rows="4" cols="30" required><?= $ordem["descricao"] ?></textarea> <br>
 
         <label for="status">Status:</label>
         <select name="status">
@@ -61,12 +64,11 @@ if (isset($_GET['id'])) {
     </form>
 
     <div>
-        <a href="lista_ordens.php"><button>Voltar para Lista de Ordens de Serviço</button></a>
+        <a href="listarordem.php"><button>Voltar para Lista de Ordens de Serviço</button></a>
     </div>
 </body>
 
 </html>
-
 <?php
     } else {
         echo "Ordem de serviço não encontrada.";
