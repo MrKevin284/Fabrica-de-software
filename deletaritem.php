@@ -15,5 +15,4 @@ if (isset($_GET['idproduto'])) {
 } else {
     echo "ID do produto não fornecido na requisição.";
 }
-
 ?>
