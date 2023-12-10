@@ -54,5 +54,4 @@ include('conexao.php');
         <script src="funcoes.js"></script>
     </div>
 </body>
-
 </html>
