@@ -66,6 +66,7 @@ if (isset($_GET['id'])) {
 </body>
 
 </html>
+
 <?php
     } else {
         echo "Ordem de serviço não encontrada.";
