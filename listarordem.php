@@ -66,5 +66,4 @@ include('conexao.php');
         <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
     </div>
 </body>
-
 </html>
