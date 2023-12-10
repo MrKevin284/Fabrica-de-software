@@ -46,10 +46,10 @@ if (isset($_GET['id'])) {
         <input type="text" name="placa" value="<?= $ordem["placa"] ?>" required> <br>
 
         <label for="dtentrada">Data de Entrada:</label>
-        <input type="text" name="dtentrada" value="<?= $ordem["dtentrada"] ?>" required> <br>
+        <input type="date" name="dtentrada" value="<?= $ordem["dtentrada"] ?>" required> <br>
 
         <label>Custo:</label>
-        <input type="text" name="custo" step="0.01" value="<?= $ordem["custo"]?>"><br>
+        <input type="text" name="custo" step="0.01" value="<?= $ordem["custo"]?>" required><br>
 
         <label for="descricao">Descrição:</label><br>
         <textarea name="descricao" rows="4" cols="30" required><?= $ordem["descricao"] ?></textarea> <br>
