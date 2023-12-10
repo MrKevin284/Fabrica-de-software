@@ -26,13 +26,14 @@ include('conexao.php');
             <th>Cor</th>
             <th>Placa</th>
             <th>Data de Entrada</th>
+            <th>Custo</th>
             <th>Descrição</th>
             <th>Status</th>
             <th>Ações</th>
         </tr>
 
         <?php
-        // Substitua 'sua_conexao' pelo seu objeto de conexão real $conn
+        
         $query = "SELECT * FROM ordensservico";
         $resultado = mysqli_query($conn, $query);
 
@@ -48,6 +49,7 @@ include('conexao.php');
                     <td><?= $row["cor"] ?></td>
                     <td><?= $row["placa"] ?></td>
                     <td><?= $row["dtentrada"] ?></td>
+                    <td><?= $row["custo"] ?></td> 
                     <td><?= $row["descricao"] ?></td>
                     <td><?= $row["status"] ?></td>
                     <td>
@@ -57,7 +59,7 @@ include('conexao.php');
             <?php endwhile; ?>
         <?php else : ?>
             <tr>
-                <td colspan='11'>Nenhuma ordem de serviço encontrada.</td>
+                <td colspan='12'>Nenhuma ordem de serviço encontrada.</td>
             </tr>
         <?php endif; ?>
     </table>
@@ -66,4 +68,5 @@ include('conexao.php');
         <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
     </div>
 </body>
+
 </html>
