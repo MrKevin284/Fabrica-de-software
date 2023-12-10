@@ -29,14 +29,17 @@
 
         <label>Data de Entrada:</label>
         <input type="date" name="dtentrada" required><br>
+        
+        <label>Custo:</label>
+        <input type="text" name="custo" step="0.01" required><br>
 
         <label>Descrição:</label><br>
         <textarea name="descricao" rows="4" cols="30" required></textarea><br>
+
 
         <input type="submit" value="Cadastrar">
     </form>
 
     <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
-    
 </body>
 </html>
