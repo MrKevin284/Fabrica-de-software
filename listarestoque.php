@@ -26,7 +26,6 @@ include('conexao.php');
         </tr>
 
         <?php
-        // Substitua 'sua_conexao' pelo seu objeto de conexão real $conn
         $query = "SELECT * FROM estoque";
         $resultado = mysqli_query($conn, $query);
 
