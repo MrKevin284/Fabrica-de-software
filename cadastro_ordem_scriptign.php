@@ -30,5 +30,4 @@ try {
 } catch (mysqli_sql_exception $e) {
     echo '<script>alert("Erro ao cadastrar no banco de dados: ' . $e->getMessage() . '"); window.location.href = "cadastraordem.php";</script>';
 }
-
 ?>
