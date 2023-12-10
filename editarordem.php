@@ -1,19 +1,14 @@
 <?php
 include('conexao.php');
 
-// Verificar se o ID da ordem de serviço foi fornecido via GET
 if (isset($_GET['id'])) {
     $idordem = $_GET['id'];
 
-    // Consulta SQL para obter informações da ordem de serviço pelo ID
     $query = "SELECT * FROM ordensservico WHERE idordem = $idordem";
     $resultado = mysqli_query($conn, $query);
 
-    // Verificar se a consulta foi bem-sucedida
     if ($resultado->num_rows > 0) {
         $ordem = mysqli_fetch_assoc($resultado);
-
-        // Exibir o formulário preenchido com os dados da ordem de serviço
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

@@ -14,12 +14,10 @@ $checkClienteQuery = "SELECT idcliente FROM clientes WHERE idcliente = '$idclien
 $result = $conn->query($checkClienteQuery);
 
 if ($result->num_rows == 0) {
-
     echo '<script>alert("O cliente com ID ' . $idcliente . ' não existe."); window.location.href = "cadastraordem.php";</script>';
     exit();
 }
 
-// Prepara a consulta SQL para inserção dos dados usando declarações preparadas
 $query = "INSERT INTO ordensservico (idcliente, modelo, marca, ano, cor, placa, dtentrada, descricao) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
 $stmt = $conn->prepare($query);
@@ -33,6 +31,4 @@ try {
     echo '<script>alert("Erro ao cadastrar no banco de dados: ' . $e->getMessage() . '"); window.location.href = "cadastraordem.php";</script>';
 }
 
-$stmt->close();
-
-$conn->close();
+?>

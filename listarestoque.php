@@ -39,12 +39,10 @@ include('conexao.php');
                     <td><?= $row["quantidade"] ?></td>
                     <td><?= $row["descricao"] ?></td>
                     <td>
-                        <a href="editar_produto.php?id=<?= $row["idproduto"] ?>"><button>Editar</button></a>
-                        <form style="display:inline-block;" action="deletar_produto.php" method="post" onsubmit="return confirm('Tem certeza que deseja excluir este produto?');">
-                            <input type="hidden" name="idproduto" value="<?= $row["idproduto"] ?>">
-                            <input type="submit" value="Deletar">
-                        </form>
+                    <a href="editar_produto.php?id=<?= $row["idproduto"] ?>"><button>Editar</button></a>
+                    <a href="deletaritem.php?idproduto=<?= $row["idproduto"] ?>" onclick="return confirm('Tem certeza que deseja excluir este produto?');"><button>Deletar</button></a>
                     </td>
+
                 </tr>
             <?php endwhile; ?>
         <?php else : ?>
