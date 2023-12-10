@@ -9,7 +9,7 @@
 
     <div class="selection">
         <button><a href="cadastracliente.php">Cadastrar cliente</button>
-        <button><a href="listarcliente.php">Listar ordem de serviço</button>
+        <button><a href="listarcliente.php">Listar cliente</button>
         <button><a href="cadastraordem.php">Cadastrar ordem de serviço</button>
         <button><a href="listarordem.php">Listar ordem de serviço</button>
         <button><a href="cadastraiten.php">Cadastrar itens do estoque</button>
