@@ -5,9 +5,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['idcliente'])) {
         $idcliente = $_POST['idcliente'];
 
-        $nome = mysqli_real_escape_string($conn, $_POST['nome']);
-        $telefone = mysqli_real_escape_string($conn, $_POST['telefone']);
-        $cpf = mysqli_real_escape_string($conn, $_POST['cpf']);
+        $nome = $_POST['nome'];
+        $telefone = $_POST['telefone'];
+        $cpf = $_POST['cpf'];
 
         $query = "UPDATE clientes SET nome='$nome', telefone='$telefone', cpf='$cpf' WHERE idcliente=$idcliente";
 
