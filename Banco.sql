@@ -22,6 +22,7 @@ CREATE TABLE ordensservico (
     placa varchar(7),
     dtentrada date,
     descricao varchar(500),
+    custo DECIMAL(10,2),
     status ENUM('concluido', 'pendente') NOT NULL DEFAULT 'pendente',
     FOREIGN KEY (idcliente) REFERENCES clientes(idcliente)
 );
