@@ -6,15 +6,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['idordem'])) {
         $idordem = $_POST['idordem'];
 
-        $idcliente = mysqli_real_escape_string($conn, $_POST['idcliente']);
-        $modelo = mysqli_real_escape_string($conn, $_POST['modelo']);
-        $marca = mysqli_real_escape_string($conn, $_POST['marca']);
-        $ano = mysqli_real_escape_string($conn, $_POST['ano']);
-        $cor = mysqli_real_escape_string($conn, $_POST['cor']);
-        $placa = mysqli_real_escape_string($conn, $_POST['placa']);
-        $dtentrada = mysqli_real_escape_string($conn, $_POST['dtentrada']);
-        $descricao = mysqli_real_escape_string($conn, $_POST['descricao']);
-        $status = mysqli_real_escape_string($conn, $_POST['status']);
+        $idcliente = $_POST['idcliente'];
+        $modelo = $_POST['modelo'];
+        $marca = $_POST['marca'];
+        $ano = $_POST['ano'];
+        $cor = $_POST['cor'];
+        $placa = $_POST['placa'];
+        $dtentrada = $_POST['dtentrada'];
+        $descricao = $_POST['descricao'];
+        $status = $_POST['status'];
 
         $query = "UPDATE ordensservico SET idcliente=$idcliente, modelo='$modelo', marca='$marca', ano=$ano, cor='$cor', placa='$placa', dtentrada='$dtentrada', descricao='$descricao', status='$status' WHERE idordem=$idordem";
 
@@ -29,5 +29,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo "<script>alert('Acesso inválido ao script.'); window.history.back();</script>";
 }
-
 ?>
