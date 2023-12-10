@@ -15,5 +15,4 @@ try {
     echo '<script>alert("Erro ao cadastrar no banco de dados: ' . $e->getMessage() . '"); window.location.href = "cadastracliente.php";</script>';
 }
 
-
 ?>
