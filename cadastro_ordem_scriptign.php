@@ -8,6 +8,7 @@ $ano = $_POST["ano"];
 $cor = $_POST["cor"];
 $placa = $_POST["placa"];
 $dtentrada = $_POST["dtentrada"];
+$custo = $_POST["custo"];
 $descricao = $_POST["descricao"];
 
 $checkClienteQuery = "SELECT idcliente FROM clientes WHERE idcliente = '$idcliente'";
@@ -18,10 +19,10 @@ if ($result->num_rows == 0) {
     exit();
 }
 
-$query = "INSERT INTO ordensservico (idcliente, modelo, marca, ano, cor, placa, dtentrada, descricao) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+$query = "INSERT INTO ordensservico (idcliente, modelo, marca, ano, cor, placa, dtentrada, custo, descricao) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 $stmt = $conn->prepare($query);
-$stmt->bind_param("isssssss", $idcliente, $modelo, $marca, $ano, $cor, $placa, $dtentrada, $descricao);
+$stmt->bind_param("issssssss", $idcliente, $modelo, $marca, $ano, $cor, $placa, $dtentrada, $custo, $descricao);
 
 try {
     $stmt->execute();
