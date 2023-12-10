@@ -18,6 +18,4 @@ try {
     echo '<script>alert("Erro ao cadastrar no banco de dados: ' . $e->getMessage() . '"); window.location.href = "cadastraiten.php";</script>';
 }
 
-$stmt->close();
-
-$conn->close();
+?>
