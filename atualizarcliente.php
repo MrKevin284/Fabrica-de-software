@@ -22,5 +22,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo "<script>alert('Acesso inválido ao script.'); window.history.back();</script>";
 }
-
 ?>
