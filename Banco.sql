@@ -3,6 +3,7 @@ create database oficina;
 use oficina;
 
 create table login(
+id INT AUTO_INCREMENT PRIMARY KEY,
 login varchar(250),
 senha varchar(250)
 );
