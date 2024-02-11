@@ -8,35 +8,35 @@ senha VARCHAR(50) NOT NULL,
 PRIMARY KEY(id_adm)
 ) ENGINE=InnoDB;
 
--- A tabela Cliente armazena informações sobre os clientes que trazem seus veículos para manutenção.
+-- A tabela Cliente armazena informações sobre os clientes que trazem seus veículos para manutenção. 
 -- Cada cliente tem um identificador único, nome, telefone, CPF e endereço.
 CREATE TABLE Cliente(
 id_cliente INT AUTO_INCREMENT,
 nome VARCHAR(50) NOT NULL,
-telefone VARCHAR(15),
+telefone VARCHAR(15) NOT NULL,
 cpf VARCHAR(14) UNIQUE,
-endereco VARCHAR(100),
+endereco VARCHAR(100) NOT NULL,
 PRIMARY KEY(id_cliente)
 ) ENGINE=InnoDB;
 
--- A tabela Veiculo armazena informações sobre os veículos que estão sendo atendidos.
+-- A tabela Veiculo armazena informações sobre os veículos que estão sendo atendidos. 
 -- Cada veículo tem um identificador único, modelo, ano de fabricação, cor e placa.
 CREATE TABLE Veiculo(
 id_veiculo INT AUTO_INCREMENT,
 modelo VARCHAR(50) NOT NULL,
-ano YEAR,
-cor VARCHAR(20),
+ano YEAR NOT NULL,
+cor VARCHAR(20) NOT NULL,
 placa VARCHAR(7) UNIQUE,
 PRIMARY KEY(id_veiculo)
 ) ENGINE=InnoDB;
 
--- A tabela Ordem_servico armazena informações sobre as ordens de serviço.
--- Cada ordem de serviço tem um identificador único, nome, descrição, data de entrada, preço, status,
+-- A tabela Ordem_servico armazena informações sobre as ordens de serviço. 
+-- Cada ordem de serviço tem um identificador único, nome, descrição, data de entrada, preço, status, 
 -- e referências para o cliente, administrador e veículo associados.
 CREATE TABLE Ordem_servico(
 id_ordem_servico INT AUTO_INCREMENT,
 nome VARCHAR(50) NOT NULL,
-descricao TEXT,
+descricao TEXT NOT NULL,
 data_entrada DATE NOT NULL,
 preco DECIMAL(10,2),
 status ENUM('Aberto', 'Em Progresso', 'Concluído') DEFAULT 'Aberto',
@@ -49,19 +49,19 @@ FOREIGN KEY(id_adm) REFERENCES Administrador(id_adm) ON DELETE SET NULL,
 FOREIGN KEY(id_veiculo) REFERENCES Veiculo(id_veiculo) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- A tabela Estoque armazena informações sobre os produtos em estoque.
+-- A tabela Estoque armazena informações sobre os produtos em estoque. 
 -- Cada produto tem um identificador único, nome, quantidade em estoque, descrição e preço.
 CREATE TABLE Estoque(
 id_produto INT AUTO_INCREMENT,
 nome_produto VARCHAR(50) NOT NULL,
 quantidade INT CHECK (quantidade >= 0),
-descricao TEXT,
+descricao TEXT NOT NULL,
 preco DECIMAL(10,2) CHECK (preco >= 0),
 PRIMARY KEY(id_produto)
 ) ENGINE=InnoDB;
 
--- A tabela Relatorio armazena informações sobre os relatórios gerados.
--- Cada relatório tem um identificador único, data do relatório, descrição,
+-- A tabela Relatorio armazena informações sobre os relatórios gerados. 
+-- Cada relatório tem um identificador único, data do relatório, descrição, 
 -- e referências para o administrador, cliente e ordem de serviço associados.
 CREATE TABLE Relatorio(
 id_relatorio INT AUTO_INCREMENT,
@@ -76,8 +76,8 @@ FOREIGN KEY(id_cliente) REFERENCES Cliente(id_cliente) ON DELETE CASCADE,
 FOREIGN KEY(id_ordem_servico) REFERENCES Ordem_servico(id_ordem_servico) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- A tabela Faturamento armazena informações sobre as faturas geradas.
--- Cada fatura tem um identificador único, data da fatura, valor total, status,
+-- A tabela Faturamento armazena informações sobre as faturas geradas. 
+-- Cada fatura tem um identificador único, data da fatura, valor total, status, 
 -- e referências para o cliente e a ordem de serviço associados.
 CREATE TABLE Faturamento(
 id_fatura INT AUTO_INCREMENT,
@@ -91,7 +91,7 @@ FOREIGN KEY(id_cliente) REFERENCES Cliente(id_cliente) ON DELETE CASCADE,
 FOREIGN KEY(id_ordem_servico) REFERENCES Ordem_servico(id_ordem_servico) ON DELETE CASCADE
 ) ENGINE=InnoDB;
 
--- A tabela LucroDiario armazena informações sobre o lucro obtido diariamente.
+-- A tabela LucroDiario armazena informações sobre o lucro obtido diariamente. 
 -- Cada entrada tem um identificador único, data e lucro.
 CREATE TABLE Lucro_Diario(
 id INT AUTO_INCREMENT,
@@ -99,6 +99,7 @@ data DATE NOT NULL,
 lucro DECIMAL(10,2) NOT NULL CHECK (lucro >= 0),
 PRIMARY KEY(id)
 ) ENGINE=InnoDB;
+
 
 -- Este índice é criado para melhorar o desempenho das consultas que filtram pelo campo data na tabela Lucro_Diario.
 CREATE INDEX idx_data_lucro ON Lucro_Diario(data);
@@ -143,4 +144,4 @@ SELECT * FROM Ordem_servico WHERE status = 'Em Progresso';
 SELECT quantidade FROM Estoque WHERE nome_produto = '[Nome do Produto]';
 
 -- Obter todas as faturas que estão pendentes:
-SELECT * FROM Faturamento WHERE status = 'Pendente';
+SELECT * FROM Faturamento WHERE status = 'Pendente';
