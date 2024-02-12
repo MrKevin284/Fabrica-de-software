@@ -1,3 +1,4 @@
+DROP DATABASE TechDrive;
 CREATE DATABASE TechDrive;
 USE TechDrive;
 
@@ -13,9 +14,10 @@ PRIMARY KEY(id_adm)
 CREATE TABLE Cliente(
 id_cliente INT AUTO_INCREMENT,
 nome VARCHAR(50) NOT NULL,
-telefone VARCHAR(15),
+telefone VARCHAR(15) NOT NULL,
 cpf VARCHAR(14) UNIQUE,
-endereco VARCHAR(100),
+endereco VARCHAR(100) NOT NULL,
+numero varchar(100) NOT NULL,
 PRIMARY KEY(id_cliente)
 ) ENGINE=InnoDB;
 
@@ -24,8 +26,8 @@ PRIMARY KEY(id_cliente)
 CREATE TABLE Veiculo(
 id_veiculo INT AUTO_INCREMENT,
 modelo VARCHAR(50) NOT NULL,
-ano YEAR,
-cor VARCHAR(20),
+ano YEAR NOT NULL,
+cor VARCHAR(20) NOT NULL,
 placa VARCHAR(7) UNIQUE,
 PRIMARY KEY(id_veiculo)
 ) ENGINE=InnoDB;
@@ -36,7 +38,7 @@ PRIMARY KEY(id_veiculo)
 CREATE TABLE Ordem_servico(
 id_ordem_servico INT AUTO_INCREMENT,
 nome VARCHAR(50) NOT NULL,
-descricao TEXT,
+descricao TEXT NOT NULL,
 data_entrada DATE NOT NULL,
 preco DECIMAL(10,2),
 status ENUM('Aberto', 'Em Progresso', 'Concluído') DEFAULT 'Aberto',
@@ -55,7 +57,7 @@ CREATE TABLE Estoque(
 id_produto INT AUTO_INCREMENT,
 nome_produto VARCHAR(50) NOT NULL,
 quantidade INT CHECK (quantidade >= 0),
-descricao TEXT,
+descricao TEXT NOT NULL,
 preco DECIMAL(10,2) CHECK (preco >= 0),
 PRIMARY KEY(id_produto)
 ) ENGINE=InnoDB;
@@ -100,6 +102,7 @@ lucro DECIMAL(10,2) NOT NULL CHECK (lucro >= 0),
 PRIMARY KEY(id)
 ) ENGINE=InnoDB;
 
+
 -- Este índice é criado para melhorar o desempenho das consultas que filtram pelo campo data na tabela Lucro_Diario.
 CREATE INDEX idx_data_lucro ON Lucro_Diario(data);
 
@@ -143,4 +146,4 @@ SELECT * FROM Ordem_servico WHERE status = 'Em Progresso';
 SELECT quantidade FROM Estoque WHERE nome_produto = '[Nome do Produto]';
 
 -- Obter todas as faturas que estão pendentes:
-SELECT * FROM Faturamento WHERE status = 'Pendente';
+SELECT * FROM Faturamento WHERE status = 'Pendente';
