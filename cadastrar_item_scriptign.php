@@ -4,11 +4,12 @@ include 'conexao.php';
 $nome = $_POST["nome"];
 $quantidade = $_POST["quantidade"];
 $descricao = $_POST["descricao"];
+$preco = $_POST["preco"];
 
-$query = "INSERT INTO estoque (nomeproduto, quantidade, descricao) VALUES (?, ?, ?)";
+$query = "INSERT INTO Estoque (nome_produto, quantidade, descricao, preco) VALUES (?, ?, ?, ?)";
 
 $stmt = $conn->prepare($query);
-$stmt->bind_param("sss", $nome, $quantidade, $descricao);
+$stmt->bind_param("ssss", $nome, $quantidade, $descricao, $preco);
 
 try {
     $stmt->execute();

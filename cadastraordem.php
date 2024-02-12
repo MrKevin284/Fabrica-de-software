@@ -9,7 +9,7 @@
     <h2>Formulário de Ordem de Serviço</h2>
 
     <form method="post" action="cadastro_ordem_scriptign.php">
-        <label>ID Cliente:</label>
+        <label>ID Cliente:</label> <!-- fazer um join na tabela para puxar o nome dos clientes cadastrados da tabela clientes-->
         <input type="number" name="idcliente" required><br>
 
         <label>Modelo:</label>
@@ -29,7 +29,7 @@
 
         <label>Data de Entrada:</label>
         <input type="date" name="dtentrada" required><br>
-        
+
         <label>Custo:</label>
         <input type="text" name="custo" step="0.01" required><br>
 

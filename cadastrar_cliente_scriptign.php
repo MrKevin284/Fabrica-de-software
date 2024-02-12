@@ -4,9 +4,11 @@ include 'conexao.php';
 $nome = $_POST["nome"];
 $telefone = $_POST["telefone"];
 $cpf = $_POST["cpf"];
+$endereco = $_POST["endereco"];
+$numero= $_POST["numero"];
 
-$stmt = $conn->prepare("INSERT INTO clientes (Nome, Telefone, CPF) VALUES (?, ?, ?)");
-$stmt->bind_param("sss", $nome, $telefone, $cpf);
+$stmt = $conn->prepare("INSERT INTO Cliente (nome, telefone, cpf, endereco, numero) VALUES (?, ?, ?, ?, ?)");
+$stmt->bind_param("sssss", $nome, $telefone, $cpf, $endereco, $numero);
 
 try {
     $stmt->execute();

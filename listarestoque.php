@@ -22,24 +22,27 @@ include('conexao.php');
             <th>Nome do Produto</th>
             <th>Quantidade</th>
             <th>Descrição</th>
+            <th>Preço</th>
             <th>Ações</th>
+
         </tr>
 
         <?php
-        $query = "SELECT * FROM estoque";
+        $query = "SELECT * FROM Estoque";
         $resultado = mysqli_query($conn, $query);
 
         if ($resultado->num_rows > 0) :
             while ($row = mysqli_fetch_assoc($resultado)) :
         ?>
                 <tr>
-                    <td><?= $row["idproduto"] ?></td>
-                    <td><?= $row["nomeproduto"] ?></td>
+                    <td><?= $row["id_produto"] ?></td>
+                    <td><?= $row["nome_produto"] ?></td>
                     <td><?= $row["quantidade"] ?></td>
                     <td><?= $row["descricao"] ?></td>
+                    <td><?= $row["preco"] ?></td>
                     <td>
-                    <a href="editar_produto.php?id=<?= $row["idproduto"] ?>"><button>Editar</button></a>
-                    <a href="deletaritem.php?idproduto=<?= $row["idproduto"] ?>" onclick="return confirm('Tem certeza que deseja excluir este produto?');"><button>Deletar</button></a>
+                    <a href="editar_produto.php?id=<?= $row["id_produto"] ?>"><button>Editar</button></a>
+                    <a href="deletaritem.php?idproduto=<?= $row["id_produto"] ?>" onclick="return confirm('Tem certeza que deseja excluir este produto?');"><button>Deletar</button></a>
                     </td>
 
                 </tr>
