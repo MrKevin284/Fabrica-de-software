@@ -14,7 +14,7 @@ if (strlen($nome) <= 3 ) {
 }
 
 $nome = htmlspecialchars($nome, ENT_QUOTES, 'UTF-8');
-$senha_hashed = password_hash($senha, PASSWORD_ARGON2ID);
+
 
 if (empty($login_error)) {
   $verificar_nome = "SELECT nome FROM Administrador WHERE nome = '$nome'";
@@ -28,7 +28,7 @@ $dados = mysqli_fetch_row($query_verificar);
 
 if (!$dados) {
     $incluir = "INSERT INTO Administrador(nome, senha)
-                VALUES ('$nome', '$senha_hashed')";
+                VALUES ('$nome', '$senha')";
     $query_incluir = mysqli_query($conn, $incluir);
 
     if ($query_incluir) {
@@ -38,7 +38,7 @@ if (!$dados) {
         die("Erro ao inserir dados: " . mysqli_error($conn));
     }
 } else {
-    $cpf_error = "CPF  já cadastrado no sistema.";
+    $login_error = "Conta já cadastrada no sistema.";
 }
 
 
