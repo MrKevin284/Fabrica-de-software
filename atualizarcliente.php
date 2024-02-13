@@ -22,6 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['idcliente'])) {
 
     mysqli_stmt_close($stmt);
 } else {
-    echo "ID do cliente não fornecido ou o formulário não foi submetido corretamente.";
+    echo '<script>alert("ID do cliente não fornecido ou o formulário não foi submetido corretamente"); window.location.href = "listarcliente.php";</script>';
 }
 ?>
