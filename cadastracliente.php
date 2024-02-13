@@ -21,7 +21,8 @@
       <input type="text" id="cpf" name="cpf"  minlength="11" maxlength="11" required><br>
 
       <label for="endereco">Endereço</label>
-      <input type="text" name="endereco" id="endereco">
+      <input type="text" name="endereco" id="endereco"> <br>
+      
       <label for="numero">Nº</label>
       <input type="number" name="numero" id="numero" ><br>
 

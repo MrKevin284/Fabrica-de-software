@@ -8,7 +8,7 @@ $endereco = $_POST["endereco"];
 $numero= $_POST["numero"];
 
 $stmt = $conn->prepare("INSERT INTO Cliente (nome, telefone, cpf, endereco, numero) VALUES (?, ?, ?, ?, ?)");
-$stmt->bind_param("sssss", $nome, $telefone, $cpf, $endereco, $numero);
+$stmt->bind_param("sissi", $nome, $telefone, $cpf, $endereco, $numero);
 
 try {
     $stmt->execute();

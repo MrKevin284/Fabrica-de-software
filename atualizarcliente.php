@@ -1,25 +1,27 @@
 <?php
 include('conexao.php');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (isset($_POST['idcliente'])) {
-        $idcliente = $_POST['idcliente'];
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['idcliente'])) {
+    $idcliente = $_POST['idcliente'];
+    $nome = $_POST['nome'];
+    $telefone = $_POST['telefone'];
+    $cpf = $_POST['cpf'];
+    $endereco = $_POST['endereco'];
+    $num = $_POST['num'];
 
-        $nome = $_POST['nome'];
-        $telefone = $_POST['telefone'];
-        $cpf = $_POST['cpf'];
+    $query = "UPDATE Cliente SET nome=?, telefone=?, cpf=?, endereco=?, numero=? WHERE id_cliente=?";
+    $stmt = mysqli_prepare($conn, $query);
+    mysqli_stmt_bind_param($stmt, "sssssi", $nome, $telefone, $cpf, $endereco, $num, $idcliente);
 
-        $query = "UPDATE clientes SET nome='$nome', telefone='$telefone', cpf='$cpf' WHERE idcliente=$idcliente";
-
-        if (mysqli_query($conn, $query)) {
-            echo "<script>alert('Cliente atualizado com sucesso!'); window.location.href='listarcliente.php';</script>";
-        } else {
-            echo "<script>alert('Erro ao atualizar cliente: " . mysqli_error($conn) . "'); window.history.back();</script>";
-        }
-    } else {
-        echo "<script>alert('ID do cliente não fornecido.'); window.history.back();</script>";
+    try {
+        $stmt->execute();
+        echo '<script>alert("Cliente atualizado com sucesso"); window.location.href = "listarcliente.php";</script>';
+    } catch (mysqli_sql_exception $e) {
+        echo '<script>alert("Erro ao atualizar o cliente: ' . $e->getMessage() . '"); window.location.href = "listarcliente.php";</script>';
     }
+
+    mysqli_stmt_close($stmt);
 } else {
-    echo "<script>alert('Acesso inválido ao script.'); window.history.back();</script>";
+    echo "ID do cliente não fornecido ou o formulário não foi submetido corretamente.";
 }
 ?>
