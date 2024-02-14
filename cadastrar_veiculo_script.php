@@ -7,7 +7,7 @@ $ano = $_POST["ano"];
 $cor = $_POST["cor"];
 $placa = $_POST["placa"];
 
-$query = "INSERT INTO veiculo (modelo, marca, ano, cor, placa) VALUES (?, ?, ?, ?, ?)";
+$query = "INSERT INTO Veiculo (modelo, marca, ano, cor, placa) VALUES (?, ?, ?, ?, ?)";
 
 $stmt = $conn->prepare($query);
 $stmt->bind_param("ssiss", $modelo, $marca, $ano, $cor, $placa);
