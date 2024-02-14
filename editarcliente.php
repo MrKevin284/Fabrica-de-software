@@ -4,11 +4,11 @@ include('conexao.php');
 if (isset($_GET['id'])) {
     $idcliente = $_GET['id'];
 
-    $query = "SELECT * FROM Cliente WHERE id_cliente = $idcliente"; 
+    $query = "SELECT * FROM Cliente WHERE id_cliente = $idcliente";
     $resultado = mysqli_query($conn, $query);
 
-    if ($resultado) { 
-        if(mysqli_num_rows($resultado) > 0) { 
+    if ($resultado) {
+        if(mysqli_num_rows($resultado) > 0) {
             $cliente = mysqli_fetch_assoc($resultado);
 ?>
 

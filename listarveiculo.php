@@ -18,7 +18,7 @@ include('conexao.php');
 
     <table border="1">
         <tr>
-            <th>ID</th>
+            <th>ID Veiculo</th>
             <th>Modelo</th>
             <th>Marca</th>
             <th>Ano</th>
@@ -28,7 +28,7 @@ include('conexao.php');
         </tr>
 
         <?php
-        
+
         $query = "SELECT * FROM Veiculo";
         $resultado = mysqli_query($conn, $query);
 
@@ -43,7 +43,7 @@ include('conexao.php');
                     <td><?= $row["cor"] ?></td>
                     <td><?= $row["placa"] ?></td>
                     <td>
-                        <a href="atualizarveiculo.php"><button>Editar</button></a>
+                        <a href="editarveiculo.php?id_veiculo=<?=$row["id_veiculo"] ?>"><button>Editar</button></a>
                     </td>
                 </tr>
             <?php endwhile; ?>
@@ -56,6 +56,7 @@ include('conexao.php');
 
     <div>
         <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
+        <script src="funcoes.js"></script>
     </div>
 </body>
 
