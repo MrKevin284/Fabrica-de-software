@@ -1,4 +1,4 @@
-DROP DATABASE TechDrive;
+
 CREATE DATABASE TechDrive;
 USE TechDrive;
 
@@ -26,6 +26,7 @@ PRIMARY KEY(id_cliente)
 CREATE TABLE Veiculo(
 id_veiculo INT AUTO_INCREMENT,
 modelo VARCHAR(50) NOT NULL,
+marca varchar(50) NOT NULL,
 ano YEAR NOT NULL,
 cor VARCHAR(20) NOT NULL,
 placa VARCHAR(7) UNIQUE,
