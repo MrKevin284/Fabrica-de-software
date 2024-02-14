@@ -8,47 +8,48 @@ include('conexao.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Clientes</title>
+    <title>Lista de Veículos</title>
 </head>
 
 <body>
-    <div class="clientes">
-        <h1>Lista de Clientes</h1>
+    <div class="veiculos">
+        <h1>Lista de Veículos</h1>
     </div>
 
     <table border="1">
         <tr>
             <th>ID</th>
-            <th>Nome</th>
-            <th>Telefone</th>
-            <th>CPF</th>
-            <th>Endereço</th>
-            <th>Nº</th>
+            <th>Modelo</th>
+            <th>Marca</th>
+            <th>Ano</th>
+            <th>Cor</th>
+            <th>Placa</th>
             <th>Ações</th>
         </tr>
 
         <?php
-        $query = "SELECT * FROM Cliente";
+        
+        $query = "SELECT * FROM Veiculo";
         $resultado = mysqli_query($conn, $query);
 
-        if (mysqli_num_rows($resultado) > 0) :
+        if ($resultado->num_rows > 0) :
             while ($row = mysqli_fetch_assoc($resultado)) :
         ?>
                 <tr>
-                    <td><?= $row["id_cliente"] ?></td>
-                    <td><?= $row["nome"] ?></td>
-                    <td><?= $row["telefone"] ?></td>
-                    <td><?= $row["cpf"] ?></td>
-                    <td><?= $row["endereco"] ?></td>
-                    <td><?= $row["numero"] ?></td>
+                    <td><?= $row["id_veiculo"] ?></td>
+                    <td><?= $row["modelo"] ?></td>
+                    <td><?= $row["marca"] ?></td>
+                    <td><?= $row["ano"] ?></td>
+                    <td><?= $row["cor"] ?></td>
+                    <td><?= $row["placa"] ?></td>
                     <td>
-                        <a href="editarcliente.php?id=<?= $row["id_cliente"] ?>"><button>Editar</button></a>
+                        <a href="atualizarveiculo.php"><button>Editar</button></a>
                     </td>
                 </tr>
             <?php endwhile; ?>
         <?php else : ?>
             <tr>
-                <td colspan='5'>Nenhum cliente encontrado.</td>
+                <td colspan='6'>Nenhum veículo encontrado.</td>
             </tr>
         <?php endif; ?>
     </table>
@@ -57,4 +58,5 @@ include('conexao.php');
         <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
     </div>
 </body>
+
 </html>
