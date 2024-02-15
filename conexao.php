@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "0123";
 $dbname = "techdrive";
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
