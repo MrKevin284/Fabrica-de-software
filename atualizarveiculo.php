@@ -1,11 +1,9 @@
 <?php
 include('conexao.php');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_veiculo'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['idcliente'])) {
 
-
-
-      $id_veiculo = $_POST['id_veiculo'];
+        $id_veiculo = $_POST['id_veiculo'];
         $modelo = $_POST['modelo'];
         $marca = $_POST['marca'];
         $ano = $_POST['ano'];

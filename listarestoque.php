@@ -18,20 +18,19 @@ include('conexao.php');
 
     <table border="1">
         <tr>
-            <th>ID Produto</th>
+            <th>ID</th>
             <th>Nome do Produto</th>
             <th>Quantidade</th>
             <th>Descrição</th>
             <th>Preço</th>
             <th>Ações</th>
-
         </tr>
 
         <?php
         $query = "SELECT * FROM Estoque";
         $resultado = mysqli_query($conn, $query);
 
-        if ($resultado->num_rows > 0) :
+        if (mysqli_num_rows($resultado) > 0) :
             while ($row = mysqli_fetch_assoc($resultado)) :
         ?>
                 <tr>
@@ -41,25 +40,20 @@ include('conexao.php');
                     <td><?= $row["descricao"] ?></td>
                     <td><?= $row["preco"] ?></td>
                     <td>
-                    <a href="editar_produto.php?id=<?= $row["id_produto"] ?>"><button>Editar</button></a>
-                    <a href="deletaritem.php?idproduto=<?= $row["id_produto"] ?>" onclick="return confirm('Tem certeza que deseja excluir este produto?');"><button>Deletar</button></a>
+                        <a href="editarestoque.php?id=<?= $row["id_produto"] ?>"><button>Editar</button></a>
                     </td>
-
                 </tr>
             <?php endwhile; ?>
         <?php else : ?>
             <tr>
-                <td colspan='5'>Nenhum produto encontrado no estoque.</td>
+                <td colspan='6'>Nenhum produto encontrado no estoque.</td>
             </tr>
         <?php endif; ?>
     </table>
 
     <div>
-        <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
-        <script src="funcoes.js"></script>
-        <div class="links">
-        <button><a href="cadastraiten.php">Cadastrar itens do estoque</button>
-        </div>
+        <a href="principal.php"><button>Voltar</button></a>
     </div>
 </body>
+
 </html>

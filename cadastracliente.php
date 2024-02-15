@@ -22,14 +22,14 @@
 
       <label for="endereco">Endereço</label>
       <input type="text" name="endereco" id="endereco"> <br>
-
+      
       <label for="numero">Nº</label>
       <input type="number" name="numero" id="numero" ><br>
 
       <input type="submit" value="Cadastrar">
     </form>
 
-         <a href="listarcliente.php" onclick="return confirmBack()"><button>Voltar</button></a>
+         <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
 
 </div>
 </body>
