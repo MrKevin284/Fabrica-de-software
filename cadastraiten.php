@@ -26,7 +26,7 @@
       <br>
     </form>
 
-         <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
+         <a href="listarestoque.php" onclick="return confirmBack()"><button>Voltar</button></a>
 
 </div>
 

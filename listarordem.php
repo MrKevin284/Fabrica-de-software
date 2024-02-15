@@ -33,7 +33,7 @@ include('conexao.php');
         </tr>
 
         <?php
-        
+
         $query = "SELECT * FROM ordensservico";
         $resultado = mysqli_query($conn, $query);
 
@@ -49,7 +49,7 @@ include('conexao.php');
                     <td><?= $row["cor"] ?></td>
                     <td><?= $row["placa"] ?></td>
                     <td><?= $row["dtentrada"] ?></td>
-                    <td><?= $row["custo"] ?></td> 
+                    <td><?= $row["custo"] ?></td>
                     <td><?= $row["descricao"] ?></td>
                     <td><?= $row["status"] ?></td>
                     <td>
@@ -66,6 +66,9 @@ include('conexao.php');
 
     <div>
         <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
+        <div class="links">
+        <button><a href="cadastraordem.php">Cadastrar ordem de serviço</button><br>
+        </div>
     </div>
 </body>
 

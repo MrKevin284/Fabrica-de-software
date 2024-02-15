@@ -24,4 +24,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['idcliente'])) {
 } else {
     echo '<script>alert("ID do cliente não fornecido ou o formulário não foi submetido corretamente"); window.location.href = "listarcliente.php";</script>';
 }
-?>
+

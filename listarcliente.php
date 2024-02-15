@@ -12,9 +12,14 @@ include('conexao.php');
 </head>
 
 <body>
+
     <div class="clientes">
         <h1>Lista de Clientes</h1>
+
+
+
     </div>
+
 
     <table border="1">
         <tr>
@@ -54,7 +59,10 @@ include('conexao.php');
     </table>
 
     <div>
-        <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
+        <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a><br>
+    </div>
+    <div class="links">
+    <button><a href="cadastracliente.php">Cadastrar cliente</button><br>
     </div>
 </body>
 </html>
