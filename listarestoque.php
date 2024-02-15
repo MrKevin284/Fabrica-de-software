@@ -24,6 +24,7 @@ include('conexao.php');
             <th>Descrição</th>
             <th>Preço</th>
             <th>Ações</th>
+            <th>Deletar</th>
         </tr>
 
         <?php
@@ -41,6 +42,9 @@ include('conexao.php');
                     <td><?= $row["preco"] ?></td>
                     <td>
                         <a href="editarestoque.php?id=<?= $row["id_produto"] ?>"><button>Editar</button></a>
+                    </td>
+                    <td>
+                     <a href="deletaritem.php?id=<?= $row["id_produto"] ?>"><button>Deletar</button></a>
                     </td>
                 </tr>
             <?php endwhile; ?>
