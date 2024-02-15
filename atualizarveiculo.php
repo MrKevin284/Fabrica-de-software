@@ -1,7 +1,7 @@
 <?php
 include('conexao.php');
 
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['idcliente'])) {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['id_veiculo'])) {
 
 
 
