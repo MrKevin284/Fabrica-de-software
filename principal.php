@@ -8,14 +8,11 @@
 <body>
 
     <div class="selection">
-        <button><a href="cadastracliente.php">Cadastrar cliente</button><br>
-        <button><a href="listarcliente.php">Listar cliente</button><br>
-        <button><a href="cadastraveiculo.php">Cadastrar veiculos</button><br>
-        <button><a href="listarveiculo.php">Listar veiculos</button><br>
-        <button><a href="cadastraordem.php">Cadastrar ordem de serviço</button><br>
-        <button><a href="listarordem.php">Listar ordem de serviço</button><br>
-        <button><a href="cadastraiten.php">Cadastrar itens do estoque</button><br>
-        <button><a href="listarestoque.php">Listar itens do estoque</button><br>
+
+        <button><a href="listarcliente.php">Clientes</button><br>
+        <button><a href="listarveiculo.php">Veiculos</button><br>
+        <button><a href="listarordem.php">Ordens de serviço</button><br>
+        <button><a href="listarestoque.php">Itens do estoque</button><br>
         <button><a href="sair.php">Sair</a></button>
     </div>
 

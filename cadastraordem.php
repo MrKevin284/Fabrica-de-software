@@ -40,6 +40,6 @@
         <input type="submit" value="Cadastrar">
     </form>
 
-    <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
+    <a href="listarordem.php" onclick="return confirmBack()"><button>Voltar</button></a>
 </body>
 </html>
