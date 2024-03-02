@@ -1,3 +1,8 @@
+<?php
+include("conexao.php");
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +11,7 @@
     <title>Principal</title>
 </head>
 <body>
-
+<center>
     <div class="selection">
 
         <button><a href="listarcliente.php">Clientes</button><br>
@@ -15,7 +20,7 @@
         <button><a href="listarestoque.php">Itens do estoque</button><br>
         <button><a href="sair.php">Sair</a></button>
     </div>
-
+    </center>
 </body>
 
 </html>
