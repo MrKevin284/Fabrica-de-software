@@ -1,17 +1,20 @@
 <?php
+
+//refazer isso do zero
 include 'conexao.php';
 
-$idcliente = $_POST["idcliente"];
+$id_ordem_servico = $_POST["id_ordem_servico"];
+$nome = $_POST["nome"];
 $modelo = $_POST["modelo"];
 $marca = $_POST["marca"];
 $ano = $_POST["ano"];
 $cor = $_POST["cor"];
 $placa = $_POST["placa"];
-$dtentrada = $_POST["dtentrada"];
+$data_entrada = $_POST["data_entrada"];
 $custo = $_POST["custo"];
 $descricao = $_POST["descricao"];
 
-$checkClienteQuery = "SELECT idcliente FROM clientes WHERE idcliente = '$idcliente'";
+$checkClienteQuery = "SELECT id_ordem_servico FROM Ordem_servico WHERE id_ordem_servico = '$id_ordem_servico'";
 $result = $conn->query($checkClienteQuery);
 
 if ($result->num_rows == 0) {
@@ -19,10 +22,10 @@ if ($result->num_rows == 0) {
     exit();
 }
 
-$query = "INSERT INTO ordensservico (idcliente, modelo, marca, ano, cor, placa, dtentrada, custo, descricao) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+$query = "INSERT INTO Ordem_servico (id_ordem_servico, nome, descricao, data_entrada, preco) VALUES (?, ?, ?, ?, ?)";
 
 $stmt = $conn->prepare($query);
-$stmt->bind_param("issssssss", $idcliente, $modelo, $marca, $ano, $cor, $placa, $dtentrada, $custo, $descricao);
+$stmt->bind_param("issss", $idcliente, $modelo, $marca, $ano, $cor, $placa, $data_entrada, $custo, $descricao);
 
 try {
     $stmt->execute();

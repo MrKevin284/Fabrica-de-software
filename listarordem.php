@@ -19,14 +19,13 @@ include('conexao.php');
     <table border="1">
         <tr>
             <th>ID</th>
+            <th>ID Veiculo</th>
             <th>ID Cliente</th>
-            <th>Modelo</th>
-            <th>Marca</th>
-            <th>Ano</th>
+            <th>Nome</th>
+            <th>Data de Entrada</th>
             <th>Cor</th>
             <th>Placa</th>
-            <th>Data de Entrada</th>
-            <th>Custo</th>
+            <th>Preço</th>
             <th>Descrição</th>
             <th>Status</th>
             <th>Ações</th>
@@ -34,22 +33,21 @@ include('conexao.php');
 
         <?php
 
-        $query = "SELECT * FROM ordensservico";
+        $query = "SELECT * FROM Ordem_servico";
         $resultado = mysqli_query($conn, $query);
 
         if ($resultado->num_rows > 0) :
             while ($row = mysqli_fetch_assoc($resultado)) :
         ?>
                 <tr>
-                    <td><?= $row["idordem"] ?></td>
-                    <td><?= $row["idcliente"] ?></td>
-                    <td><?= $row["modelo"] ?></td>
-                    <td><?= $row["marca"] ?></td>
-                    <td><?= $row["ano"] ?></td>
+                    <td><?= $row["id_ordem_servico"] ?></td>
+                    <td><?= $row["id_veiculo"] ?></td>
+                    <td><?= $row["id_cliente"] ?></td>
+                    <td><?= $row["nome"] ?></td>
+                    <td><?= $row["data_entrada"] ?></td>
                     <td><?= $row["cor"] ?></td>
                     <td><?= $row["placa"] ?></td>
-                    <td><?= $row["dtentrada"] ?></td>
-                    <td><?= $row["custo"] ?></td>
+                    <td><?= $row["preco"] ?></td>
                     <td><?= $row["descricao"] ?></td>
                     <td><?= $row["status"] ?></td>
                     <td>
