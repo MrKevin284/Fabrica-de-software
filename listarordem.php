@@ -19,15 +19,13 @@ include('conexao.php');
     <table border="1">
         <tr>
             <th>ID</th>
-            <th>ID Veiculo</th>
-            <th>ID Cliente</th>
-            <th>Nome</th>
-            <th>Data de Entrada</th>
-            <th>Cor</th>
-            <th>Placa</th>
-            <th>Preço</th>
             <th>Descrição</th>
+            <th>Data de Entrada</th>
+            <th>Preço</th>
             <th>Status</th>
+            <th>ID Cliente</th>
+            <th>ID Administrador</th>
+            <th>ID Veículo</th>
             <th>Ações</th>
         </tr>
 
@@ -36,37 +34,32 @@ include('conexao.php');
         $query = "SELECT * FROM Ordem_servico";
         $resultado = mysqli_query($conn, $query);
 
-        if ($resultado->num_rows > 0) :
+        if (mysqli_num_rows($resultado) > 0) :
             while ($row = mysqli_fetch_assoc($resultado)) :
         ?>
                 <tr>
                     <td><?= $row["id_ordem_servico"] ?></td>
-                    <td><?= $row["id_veiculo"] ?></td>
                     <td><?= $row["id_cliente"] ?></td>
-                    <td><?= $row["nome"] ?></td>
-                    <td><?= $row["data_entrada"] ?></td>
-                    <td><?= $row["cor"] ?></td>
-                    <td><?= $row["placa"] ?></td>
-                    <td><?= $row["preco"] ?></td>
+                    <td><?= $row["id_adm"] ?></td>
+                    <td><?= $row["id_veiculo"] ?></td>
                     <td><?= $row["descricao"] ?></td>
+                    <td><?= $row["data_entrada"] ?></td>
+                    <td><?= $row["preco"] ?></td>
                     <td><?= $row["status"] ?></td>
                     <td>
-                        <a href="editarordem.php?id=<?= $row["idordem"] ?>"><button>Editar</button></a>
+                        <a href="editarordem.php?id=<?= $row["id_ordem_servico"] ?>"><button>Editar</button></a>
                     </td>
                 </tr>
             <?php endwhile; ?>
         <?php else : ?>
             <tr>
-                <td colspan='12'>Nenhuma ordem de serviço encontrada.</td>
+                <td colspan='10'>Nenhuma ordem de serviço encontrada.</td>
             </tr>
         <?php endif; ?>
     </table>
 
     <div>
         <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
-        <div class="links">
-        <button><a href="cadastraordem.php">Cadastrar ordem de serviço</button><br>
-        </div>
     </div>
 </body>
 

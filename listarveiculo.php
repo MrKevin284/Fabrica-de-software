@@ -56,9 +56,6 @@ include('conexao.php');
 
     <div>
         <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
-        <div class="links">
-        <button><a href="cadastraveiculo.php">Cadastrar veiculos</button><br>
-        </div>
         <script src="funcoes.js"></script>
     </div>
 </body>

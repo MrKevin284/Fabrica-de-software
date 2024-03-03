@@ -3,33 +3,27 @@
 //refazer isso do zero
 include 'conexao.php';
 
-$id_ordem_servico = $_POST["id_ordem_servico"];
-$nome = $_POST["nome"];
-$modelo = $_POST["modelo"];
-$marca = $_POST["marca"];
-$ano = $_POST["ano"];
-$cor = $_POST["cor"];
-$placa = $_POST["placa"];
-$data_entrada = $_POST["data_entrada"];
-$custo = $_POST["custo"];
 $descricao = $_POST["descricao"];
+$data_entrada = $_POST["data_entrada"];
+$preco = $_POST["preco"];
+$id_cliente = $_POST["id_cliente"];
+$id_adm = $_POST["id_adm"];
+$id_veiculo = $_POST["id_veiculo"];
 
-$checkClienteQuery = "SELECT id_ordem_servico FROM Ordem_servico WHERE id_ordem_servico = '$id_ordem_servico'";
+$checkClienteQuery = "SELECT id_cliente FROM Cliente WHERE id_cliente = '$id_cliente'";
 $result = $conn->query($checkClienteQuery);
 
 if ($result->num_rows == 0) {
-    echo '<script>alert("O cliente com ID ' . $idcliente . ' não existe."); window.location.href = "cadastraordem.php";</script>';
+    echo '<script>alert("O cliente com ID ' . $id_cliente . ' não existe."); window.location.href = "cadastraordem.php";</script>';
     exit();
 }
 
-$query = "INSERT INTO Ordem_servico (id_ordem_servico, nome, descricao, data_entrada, preco) VALUES (?, ?, ?, ?, ?)";
-
+$query = "INSERT INTO Ordem_servico (descricao, data_entrada, preco, id_cliente, id_adm, id_veiculo) VALUES (?, ?, ?, ?, ?, ?)";
 $stmt = $conn->prepare($query);
-$stmt->bind_param("issss", $idcliente, $modelo, $marca, $ano, $cor, $placa, $data_entrada, $custo, $descricao);
+$stmt->bind_param("ssiiii", $descricao, $data_entrada, $preco, $id_cliente, $id_adm, $id_veiculo);
 
 try {
     $stmt->execute();
-
     echo '<script>alert("Ordem de serviço cadastrada com sucesso!"); window.location.href = "cadastraordem.php";</script>';
 } catch (mysqli_sql_exception $e) {
     echo '<script>alert("Erro ao cadastrar no banco de dados: ' . $e->getMessage() . '"); window.location.href = "cadastraordem.php";</script>';

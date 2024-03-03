@@ -38,7 +38,6 @@ PRIMARY KEY(id_veiculo)
 -- e referências para o cliente, administrador e veículo associados.
 CREATE TABLE Ordem_servico(
 id_ordem_servico INT AUTO_INCREMENT,
-nome VARCHAR(50) NOT NULL,
 descricao TEXT NOT NULL,
 data_entrada DATE NOT NULL,
 preco DECIMAL(10,2),

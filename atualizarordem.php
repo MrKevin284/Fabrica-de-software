@@ -3,21 +3,18 @@ include('conexao.php');
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
-    if (isset($_POST['idordem'])) {
-        $idordem = $_POST['idordem'];
+    if (isset($_POST['id_ordem_servico'])) {
+        $id_ordem_servico = $_POST['id_ordem_servico'];
 
-        $idcliente = $_POST['idcliente'];
-        $modelo = $_POST['modelo'];
-        $marca = $_POST['marca'];
-        $ano = $_POST['ano'];
-        $cor = $_POST['cor'];
-        $placa = $_POST['placa'];
-        $dtentrada = $_POST['dtentrada'];
-        $custo = $_POST["custo"];
         $descricao = $_POST['descricao'];
+        $data_entrada = $_POST['data_entrada'];
+        $preco = $_POST['preco'];
         $status = $_POST['status'];
+        $id_cliente = $_POST['id_cliente'];
+        $id_adm = $_POST['id_adm'];
+        $id_veiculo = $_POST['id_veiculo'];
 
-        $query = "UPDATE ordensservico SET idcliente=$idcliente, modelo='$modelo', marca='$marca', ano=$ano, cor='$cor', placa='$placa', dtentrada='$dtentrada', custo='$custo', descricao='$descricao', status='$status' WHERE idordem=$idordem";
+        $query = "UPDATE Ordem_servico SET descricao='$descricao', data_entrada='$data_entrada', preco=$preco, status='$status', id_cliente=$id_cliente, id_adm=$id_adm, id_veiculo=$id_veiculo WHERE id_ordem_servico=$id_ordem_servico";
 
         if (mysqli_query($conn, $query)) {
             echo "<script>alert('Ordem de serviço atualizada com sucesso!'); window.location.href='listarordem.php';</script>";
