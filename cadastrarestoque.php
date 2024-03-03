@@ -29,7 +29,7 @@
     </form>
 
     <div>
-        <a href="principal.php"><button>Voltar</button></a>
+        <a href="listarestoque.php"><button>Voltar</button></a>
     </div>
 </body>
 

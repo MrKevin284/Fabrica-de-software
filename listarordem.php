@@ -19,13 +19,13 @@ include('conexao.php');
     <table border="1">
         <tr>
             <th>ID</th>
+            <th>ID Cliente</th>
+            <th>ID Administrador</th>
+            <th>ID Veículo</th>
             <th>Descrição</th>
             <th>Data de Entrada</th>
             <th>Preço</th>
             <th>Status</th>
-            <th>ID Cliente</th>
-            <th>ID Administrador</th>
-            <th>ID Veículo</th>
             <th>Ações</th>
         </tr>
 
@@ -59,6 +59,7 @@ include('conexao.php');
     </table>
 
     <div>
+    <button><a href="cadastraordem.php">Cadastrar ordem de serviço</button><br>
         <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
     </div>
 </body>

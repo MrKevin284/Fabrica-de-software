@@ -55,6 +55,7 @@ include('conexao.php');
     </table>
 
     <div>
+    <button><a href="cadastraveiculo.php">Cadastrar veiculos</button><br>
         <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
         <script src="funcoes.js"></script>
     </div>
