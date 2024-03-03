@@ -56,6 +56,7 @@ include('conexao.php');
     </table>
 
     <div>
+    <button><a href="cadastrarestoque.php">Cadastrar itens do estoque</button><br>
         <a href="principal.php"><button>Voltar</button></a>
     </div>
 </body>

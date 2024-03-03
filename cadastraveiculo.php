@@ -26,7 +26,7 @@
         <input type="submit" value="Enviar">
     </form>
     <div>
-        <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
+        <a href="listarveiculo.php" onclick="return confirmBack()"><button>Voltar</button></a>
     </div>
 </body>
 </html>

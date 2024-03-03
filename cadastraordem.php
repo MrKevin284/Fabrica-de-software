@@ -10,10 +10,10 @@
         <form action="cadastro_ordem_scriptign.php" method="POST">
         <label for="id_cliente">ID Cliente:</label>
         <input type="number" id="id_cliente" name="id_cliente" required><br>
-        
+
         <label for="id_adm">ID Administrador:</label>
         <input type="number" id="id_adm" name="id_adm"><br>
-        
+
         <label for="id_veiculo">ID Veículo:</label>
         <input type="number" id="id_veiculo" name="id_veiculo" required><br>
 
@@ -29,7 +29,7 @@
         <input type="submit" value="Enviar">
     </form>
     <div>
-        <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
+        <a href="listarordem.php" onclick="return confirmBack()"><button>Voltar</button></a>
     </div>
 </body>
 </html>
