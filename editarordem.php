@@ -2,14 +2,16 @@
 include('conexao.php');
 
 if (isset($_GET['id'])) {
-    $idordem = $_GET['id'];
+    $id_ordem_servico = $_GET['id'];
 
-    $query = "SELECT * FROM ordensservico WHERE idordem = $idordem";
+    $query = "SELECT * FROM Ordem_servico WHERE id_ordem_servico = $id_ordem_servico";
     $resultado = mysqli_query($conn, $query);
 
-    if ($resultado->num_rows > 0) {
-        $ordem = mysqli_fetch_assoc($resultado);
+    if ($resultado) {
+        if(mysqli_num_rows($resultado) > 0) {
+            $ordem_servico = mysqli_fetch_assoc($resultado);
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -23,42 +25,35 @@ if (isset($_GET['id'])) {
     <div class="ordens-servico">
         <h1>Editar Ordem de Serviço</h1>
     </div>
-
-    <form action="atulizarordem.php" method="post">
-        <input type="hidden" name="idordem" value="<?= $ordem["idordem"] ?>">
-
-        <label for="idcliente">ID Cliente:</label>
-        <input type="text" name="idcliente" value="<?= $ordem["idcliente"] ?>" required> <br>
-
-        <label for="modelo">Modelo:</label>
-        <input type="text" name="modelo" value="<?= $ordem["modelo"] ?>" required> <br>
-
-        <label for="marca">Marca:</label>
-        <input type="text" name="marca" value="<?= $ordem["marca"] ?>" required> <br>
-
-        <label for="ano">Ano:</label>
-        <input type="text" name="ano" value="<?= $ordem["ano"] ?>" required> <br>
-
-        <label for="cor">Cor:</label>
-        <input type="text" name="cor" value="<?= $ordem["cor"] ?>" required> <br>
-
-        <label for="placa">Placa:</label>
-        <input type="text" name="placa" value="<?= $ordem["placa"] ?>" required> <br>
-
-        <label for="dtentrada">Data de Entrada:</label>
-        <input type="date" name="dtentrada" value="<?= $ordem["dtentrada"] ?>" required> <br>
-
-        <label>Custo:</label>
-        <input type="text" name="custo" step="0.01" value="<?= $ordem["custo"]?>" required><br>
-
+    
+    <form action="atualizarordem.php" method="post">
+        <input type="hidden" name="id_ordem_servico" value="<?= $ordem_servico["id_ordem_servico"] ?>">
+        
+        <label for="id_cliente">ID Cliente:</label>
+        <input type="number" name="id_cliente" value="<?= $ordem_servico["id_cliente"] ?>" required><br>
+    
+        <label for="id_adm">ID Administrador:</label>
+        <input type="number" name="id_adm" value="<?= $ordem_servico["id_adm"] ?>"><br>
+    
+        <label for="id_veiculo">ID Veículo:</label>
+        <input type="number" name="id_veiculo" value="<?= $ordem_servico["id_veiculo"] ?>" required><br>
+        
         <label for="descricao">Descrição:</label><br>
-        <textarea name="descricao" rows="4" cols="30" required><?= $ordem["descricao"] ?></textarea> <br>
+        <textarea name="descricao" rows="4" required><?= $ordem_servico["descricao"] ?></textarea><br>
+
+        <label for="data_entrada">Data de Entrada:</label>
+        <input type="date" name="data_entrada" value="<?= $ordem_servico["data_entrada"] ?>" required><br>
+
+        <label for="preco">Preço:</label>
+        <input type="number" name="preco" value="<?= $ordem_servico["preco"] ?>" step="0.01"><br>
 
         <label for="status">Status:</label>
         <select name="status">
-            <option value="concluido" <?= ($ordem["status"] == "concluido") ? "selected" : "" ?>>Concluído</option>
-            <option value="pendente" <?= ($ordem["status"] == "pendente") ? "selected" : "" ?>>Pendente</option>
-        </select> <br>
+            <option value="Aberto" <?= ($ordem_servico["status"] == "Aberto") ? "selected" : "" ?>>Aberto</option>
+            <option value="Em Progresso" <?= ($ordem_servico["status"] == "Em Progresso") ? "selected" : "" ?>>Em Progresso</option>
+            <option value="Concluído" <?= ($ordem_servico["status"] == "Concluído") ? "selected" : "" ?>>Concluído</option>
+        </select><br>
+
 
         <input type="submit" value="Atualizar">
     </form>
@@ -69,9 +64,13 @@ if (isset($_GET['id'])) {
 </body>
 
 </html>
+
 <?php
+        } else {
+            echo "Ordem de serviço não encontrada.";
+        }
     } else {
-        echo "Ordem de serviço não encontrada.";
+        echo "Erro na consulta: " . mysqli_error($conn);
     }
 } else {
     echo "ID da ordem de serviço não fornecido.";

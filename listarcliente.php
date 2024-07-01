@@ -22,23 +22,27 @@ include('conexao.php');
             <th>Nome</th>
             <th>Telefone</th>
             <th>CPF</th>
+            <th>Endereço</th>
+            <th>Nº</th>
             <th>Ações</th>
         </tr>
 
         <?php
-        $query = "SELECT * FROM clientes";
+        $query = "SELECT * FROM Cliente";
         $resultado = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($resultado) > 0) :
             while ($row = mysqli_fetch_assoc($resultado)) :
         ?>
                 <tr>
-                    <td><?= $row["idcliente"] ?></td>
+                    <td><?= $row["id_cliente"] ?></td>
                     <td><?= $row["nome"] ?></td>
                     <td><?= $row["telefone"] ?></td>
                     <td><?= $row["cpf"] ?></td>
+                    <td><?= $row["endereco"] ?></td>
+                    <td><?= $row["numero"] ?></td>
                     <td>
-                        <a href="editarcliente.php?id=<?= $row["idcliente"] ?>"><button>Editar</button></a>
+                        <a href="editarcliente.php?id=<?= $row["id_cliente"] ?>"><button>Editar</button></a>
                     </td>
                 </tr>
             <?php endwhile; ?>
@@ -50,8 +54,8 @@ include('conexao.php');
     </table>
 
     <div>
+    <button><a href="cadastracliente.php">Cadastrar cliente</button><br>
         <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
-        <script src="funcoes.js"></script>
     </div>
 </body>
 </html>

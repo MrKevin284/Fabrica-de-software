@@ -1,45 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulário de Ordem de Serviço</title>
-</head>
-<body>
-    <h2>Formulário de Ordem de Serviço</h2>
+<html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulário Ordem de Serviço</title>
+    </head>
+    <body>
+        <h2>Cadastro de Ordem de Serviço</h2>
+        <form action="cadastro_ordem_scriptign.php" method="POST">
+        <label for="id_cliente">ID Cliente:</label>
+        <input type="number" id="id_cliente" name="id_cliente" required><br>
 
-    <form method="post" action="cadastro_ordem_scriptign.php">
-        <label>ID Cliente:</label>
-        <input type="number" name="idcliente" required><br>
+        <label for="id_adm">ID Administrador:</label>
+        <input type="number" id="id_adm" name="id_adm"><br>
 
-        <label>Modelo:</label>
-        <input type="text" name="modelo" required><br>
+        <label for="id_veiculo">ID Veículo:</label>
+        <input type="number" id="id_veiculo" name="id_veiculo" required><br>
 
-        <label>Marca:</label>
-        <input type="text" name="marca" required><br>
+        <label for="descricao">Descrição:</label><br>
+        <textarea id="descricao" name="descricao" rows="4" required></textarea><br>
 
-        <label>Ano:</label>
-        <input type="number" name="ano" required><br>
+        <label for="data_entrada">Data de Entrada:</label>
+        <input type="date" id="data_entrada" name="data_entrada" required><br>
 
-        <label>Cor:</label>
-        <input type="text" name="cor" required><br>
+        <label for="preco">Preço:</label>
+        <input type="number" id="preco" name="preco" step="0.01"><br>
 
-        <label>Placa:</label>
-        <input type="text" name="placa" required><br>
-
-        <label>Data de Entrada:</label>
-        <input type="date" name="dtentrada" required><br>
-        
-        <label>Custo:</label>
-        <input type="text" name="custo" step="0.01" required><br>
-
-        <label>Descrição:</label><br>
-        <textarea name="descricao" rows="4" cols="30" required></textarea><br>
-
-
-        <input type="submit" value="Cadastrar">
+        <input type="submit" value="Enviar">
     </form>
-
-    <a href="principal.php" onclick="return confirmBack()"><button>Voltar</button></a>
+    <div>
+        <a href="listarordem.php" onclick="return confirmBack()"><button>Voltar</button></a>
+    </div>
 </body>
 </html>
